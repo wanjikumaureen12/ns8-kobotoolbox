@@ -77,3 +77,13 @@ agent.write_envfile("redis_cache.env", redis_cache)
 redis_main = { 
 } 
 agent.write_envfile("redis_main.env", redis_main) 
+ENKETO_API_KEY = data.get("ENKETO_API_KEY") 
+ENKETO_SERVER_PORT = data.get("ENKETO_SERVER_PORT") 
+ENKETO_AUTH_SERVER_URL = data.get("ENKETO_AUTH_SERVER_URL") 
+ 
+enketo_express = { 
+ "ENKETO_API_KEY" : ENKETO_API_KEY ,
+ "ENKETO_SERVER_PORT" : ENKETO_SERVER_PORT ,
+ "ENKETO_AUTH_SERVER_URL" : ENKETO_AUTH_SERVER_URL ,
+} 
+agent.write_envfile("enketo_express.env", enketo_express) 
