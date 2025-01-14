@@ -45,7 +45,7 @@ buildah config --entrypoint=/ \
     --label="org.nethserver.authorizations=traefik@node:routeadm" \
     --label="org.nethserver.tcp-ports-demand=1" \
     --label="org.nethserver.rootfull=0" \
-    --label="org.nethserver.images=docker.io/kobotoolbox/enketo-express:error-message-improvements-and-custom-confirmation-message-5511aca0 docker.io/kobotoolbox/kpi:2.024.36a docker.io/kobotoolbox/kobocat mongo:4.4 docker.io/redis:6 docker.io/redis:6" \
+    --label="org.nethserver.images=docker.io/kobotoolbox/enketo-express:error-message-improvements-and-custom-confirmation-message-5511aca0 docker.io/kobotoolbox/kpi:2.024.36a docker.io/kobotoolbox/kobocat:2.024.19e docker.io/mongo:4.4 docker.io/redis:6" \
     "${container}"
 # Commit the image
 buildah commit "${container}" "${repobase}/${reponame}"
