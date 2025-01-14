@@ -65,3 +65,7 @@ kobocat = {
  "MONGO_PORT" : MONGO_PORT ,
 } 
 agent.write_envfile("kobocat.env", kobocat) 
+ 
+mongo = { 
+} 
+agent.write_envfile("mongo.env", mongo) 
