@@ -73,3 +73,7 @@ agent.write_envfile("mongo.env", mongo)
 redis_cache = { 
 } 
 agent.write_envfile("redis_cache.env", redis_cache) 
+ 
+redis_main = { 
+} 
+agent.write_envfile("redis_main.env", redis_main) 
