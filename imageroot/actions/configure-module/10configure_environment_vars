@@ -15,3 +15,27 @@ data = json.load(sys.stdin)
 
 #This is specific to you module, so you need to change it accordingly.
 #agent.dump_env()
+DJANGO_SETTINGS_MODULE = data.get("DJANGO_SETTINGS_MODULE") 
+KPI_PUBLIC_PORT = data.get("KPI_PUBLIC_PORT") 
+KPI_INTERNAL_PORT = data.get("KPI_INTERNAL_PORT") 
+ENKETO_API_URL = data.get("ENKETO_API_URL") 
+ENKETO_API_KEY = data.get("ENKETO_API_KEY") 
+REDIS_MAIN_URL = data.get("REDIS_MAIN_URL") 
+REDIS_CACHE_URL = data.get("REDIS_CACHE_URL") 
+MONGO_DATABASE_NAME = data.get("MONGO_DATABASE_NAME") 
+MONGO_HOST = data.get("MONGO_HOST") 
+MONGO_PORT = data.get("MONGO_PORT") 
+ 
+kpi = { 
+ "DJANGO_SETTINGS_MODULE" : DJANGO_SETTINGS_MODULE ,
+ "KPI_PUBLIC_PORT" : KPI_PUBLIC_PORT ,
+ "KPI_INTERNAL_PORT" : KPI_INTERNAL_PORT ,
+ "ENKETO_API_URL" : ENKETO_API_URL ,
+ "ENKETO_API_KEY" : ENKETO_API_KEY ,
+ "REDIS_MAIN_URL" : REDIS_MAIN_URL ,
+ "REDIS_CACHE_URL" : REDIS_CACHE_URL ,
+ "MONGO_DATABASE_NAME" : MONGO_DATABASE_NAME ,
+ "MONGO_HOST" : MONGO_HOST ,
+ "MONGO_PORT" : MONGO_PORT ,
+} 
+agent.write_envfile("kpi.env", kpi) 
