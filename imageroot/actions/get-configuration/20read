@@ -24,3 +24,76 @@ config["lets_encrypt"] = os.getenv("TRAEFIK_LETS_ENCRYPT") == "True"
 
 # Dump the configuration to stdout
 # json.dump(config, fp=sys.stdout)
+if os.path.exists("kpi.env"): 
+	data = agent.read_envfile("kpi.env") 
+	config["DJANGO_SETTINGS_MODULE"] = data.get("DJANGO_SETTINGS_MODULE") 
+	config["KPI_PUBLIC_PORT"] = data.get("KPI_PUBLIC_PORT") 
+	config["KPI_INTERNAL_PORT"] = data.get("KPI_INTERNAL_PORT") 
+	config["ENKETO_API_URL"] = data.get("ENKETO_API_URL") 
+	config["ENKETO_API_KEY"] = data.get("ENKETO_API_KEY") 
+	config["REDIS_MAIN_URL"] = data.get("REDIS_MAIN_URL") 
+	config["REDIS_CACHE_URL"] = data.get("REDIS_CACHE_URL") 
+	config["MONGO_DATABASE_NAME"] = data.get("MONGO_DATABASE_NAME") 
+	config["MONGO_HOST"] = data.get("MONGO_HOST") 
+	config["MONGO_PORT"] = data.get("MONGO_PORT") 
+else: 
+	config["DJANGO_SETTINGS_MODULE"] = "" 
+	config["KPI_PUBLIC_PORT"] = "" 
+	config["KPI_INTERNAL_PORT"] = "" 
+	config["ENKETO_API_URL"] = "" 
+	config["ENKETO_API_KEY"] = "" 
+	config["REDIS_MAIN_URL"] = "" 
+	config["REDIS_CACHE_URL"] = "" 
+	config["MONGO_DATABASE_NAME"] = "" 
+	config["MONGO_HOST"] = "" 
+	config["MONGO_PORT"] = "" 
+ 
+if os.path.exists("kobocat.env"): 
+	data = agent.read_envfile("kobocat.env") 
+	config["DJANGO_SETTINGS_MODULE"] = data.get("DJANGO_SETTINGS_MODULE") 
+	config["KOBOCAT_PUBLIC_PORT"] = data.get("KOBOCAT_PUBLIC_PORT") 
+	config["KOBOCAT_INTERNAL_PORT"] = data.get("KOBOCAT_INTERNAL_PORT") 
+	config["KPI_API_URL"] = data.get("KPI_API_URL") 
+	config["ENKETO_API_URL"] = data.get("ENKETO_API_URL") 
+	config["ENKETO_API_KEY"] = data.get("ENKETO_API_KEY") 
+	config["REDIS_MAIN_URL"] = data.get("REDIS_MAIN_URL") 
+	config["REDIS_CACHE_URL"] = data.get("REDIS_CACHE_URL") 
+	config["MONGO_DATABASE_NAME"] = data.get("MONGO_DATABASE_NAME") 
+	config["MONGO_HOST"] = data.get("MONGO_HOST") 
+	config["MONGO_PORT"] = data.get("MONGO_PORT") 
+else: 
+	config["DJANGO_SETTINGS_MODULE"] = "" 
+	config["KOBOCAT_PUBLIC_PORT"] = "" 
+	config["KOBOCAT_INTERNAL_PORT"] = "" 
+	config["KPI_API_URL"] = "" 
+	config["ENKETO_API_URL"] = "" 
+	config["ENKETO_API_KEY"] = "" 
+	config["REDIS_MAIN_URL"] = "" 
+	config["REDIS_CACHE_URL"] = "" 
+	config["MONGO_DATABASE_NAME"] = "" 
+	config["MONGO_HOST"] = "" 
+	config["MONGO_PORT"] = "" 
+ 
+if os.path.exists("mongo.env"): 
+	data = agent.read_envfile("mongo.env") 
+else: 
+ 
+if os.path.exists("redis_cache.env"): 
+	data = agent.read_envfile("redis_cache.env") 
+else: 
+ 
+if os.path.exists("redis_main.env"): 
+	data = agent.read_envfile("redis_main.env") 
+else: 
+ 
+if os.path.exists("enketo_express.env"): 
+	data = agent.read_envfile("enketo_express.env") 
+	config["ENKETO_API_KEY"] = data.get("ENKETO_API_KEY") 
+	config["ENKETO_SERVER_PORT"] = data.get("ENKETO_SERVER_PORT") 
+	config["ENKETO_AUTH_SERVER_URL"] = data.get("ENKETO_AUTH_SERVER_URL") 
+else: 
+	config["ENKETO_API_KEY"] = "" 
+	config["ENKETO_SERVER_PORT"] = "" 
+	config["ENKETO_AUTH_SERVER_URL"] = "" 
+ 
+json.dump(config, fp=sys.stdout)
